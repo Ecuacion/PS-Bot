@@ -18,7 +18,7 @@ exports.commands = {
 	credits: 'about',
 	about: function (target, room, user, pm) {
 		if (!hasPermission(user, 'broadcast')) pm = "/msg " + user.substr(1) + ", ";
-		this.send(pm + "PS Bot by jd", room);
+		this.send(pm + "PS Bot by jd and panpawn", room);
 	},
 
 	uptime: function (target, room, user, pm) {
