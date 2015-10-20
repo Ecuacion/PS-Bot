@@ -1,0 +1,165 @@
+<html>
+<!-- Website design by panpawn -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Gold!</title>
+    <style>
+        link {
+            font-color: white;
+        }
+        button {
+            background-color: #ffab23;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            border: 2px solid #de8c11;
+            font-family: monospace;
+            font-size: 10px;
+            padding: 4px 16px;
+            font-size: 22px;
+            transition: all 0.3s ease 0s;
+        }
+        button:hover {
+            background-color: #FF9933
+        }
+        button:active {
+            box-shadow: 0 2px 0 #006599;
+            transform: translateY(3px);
+        }
+        .blacktrans {
+            width: 840px;
+            color: rgb(255, 255, 255);
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            text-shadow: 0px -1px 0px #000;
+            font-family: monospace;
+            font-size: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    </style>
+    <script>
+        var visibleButton = false;
+
+        function showInfo(button) {
+            if (document.getElementById(button).style.display !== 'none') {
+                document.getElementById(button).style.display = 'none';
+                visibleButton = false;
+                return;
+            }
+            if (visibleButton) {
+                document.getElementById(visibleButton).style.display = 'none';
+            }
+            if (document.getElementById(button).style.display === 'none') {
+                document.getElementById(button).style.display = '';
+                visibleButton = button;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <body background="http://i.imgur.com/PGQAF5D.jpg">
+        <center><img src="http://i.imgur.com/lOgb2K6.png">
+            <br />
+            <br />
+            <div class="blacktrans">
+                <br />This webpage is a guide for a Pokémon Showdown! bot.
+                <br /><i>(Guide by: panpawn)</i>
+                <br>
+                <br />
+                <br />
+                <br /> Click the buttons below to hide / show the respective message.
+                <br />
+                <br />
+                <button type="button" onclick="showInfo('features');" title="Features">Features</button> |
+                <button type="button" onclick="showInfo('commands');" title="Commands">Commands</button> |
+                <button type="button" onclick="showInfo('credits');" title="Credits">Credits</button>
+
+                <br />
+                <br />
+
+                <div align="left" id="features" style="display:none">
+                    <hr width="50%">
+                    <div style="text-align: center">
+                        <h2>Features</h2>
+                    </div>
+                    <br> These are the major features of this bot that set it apart from most other PS bots.
+                    <br>
+                    <br>
+                    <ul>
+                        <li><span style="text-decoration: underline">Chat room
+                    logging:</span> this feature of the bot will log the chats the bot is in, if enabled in Config. The users can then request logs of a chat as they wish specifying the server, room and date via the viewlogs command.</li>
+                        <li><span style="text-decoration: underline">Being able to
+                    connect to multiple servers:</span> this allows the user to preset what servers they want the bot to connect in via Config. This allows the bot to be able to do more cross server commands that most other bots cannot do.</li>
+                        <li><span style="text-decoration: underline">Tracking when
+                    a user was last seen across several servers:</span> because this bot has the capability of connecting to several servers, it allows it to store when a user was last seen with that in consideration.</li>
+                        <li><span style="text-decoration: underline">Offline
+                    messaging (tells) across servers:</span> this feature allows the bot to be able to send offline tell messages across servers. It will send the user in question the tell once they join a server/room the bot is in.</li>
+                    </ul>
+                </div>
+
+                <div align="left" id="commands" style="display:none">
+                    <hr width="50%">
+                    <div style="text-align: center">
+                        <h2>Commands</h2>
+                    </div>
+                    <br> Here's a brief overview of the commands this bot has:
+                    <br>
+                    <ul>
+                        <li>Informational Commands:</li>
+                        <li style="list-style: none; display: inline">
+                            <ul>
+                                <li>seen [user] - displays when [user] was last seen in the bots database.</li>
+                                <li>about - displays the link to the main GitHub for this bot with the author.</li>
+                                <li>uptime - displays how long the bot has been started for.</li>
+                                <li>memusage - displays how much RAM the bot is using / taking up.</li>
+                                <li>regdate [name] - displays when [name] was registered on Pokémon Showdown!.</li>
+                                <li>viewlogs [server], [room], [DD-MM-YYYY] - displays the chat logs for the respected room on the specified date.</li>
+                            </ul>
+                        </li>
+                        <li>Developer Commands:</li>
+                        <li style="list-style: none; display: inline">
+                            <ul>
+                                <li>eval [target] - executes [target].</li>
+                                <li>kill - kills the bot process.</li>
+                                <li>reload - hotpatches commands for the bot.</li>
+                                <li>permission [permission], [rank] - sets [permission] to be for the [rank] rank.</li>
+                                <li>reconnect - reconnects the bot for the respective server.</li>
+                            </ul>
+                        </li>
+                        <li>Misc. Commands</li>
+                        <li style="list-style: none; display: inline">
+                            <ul>
+                                <li>custom [target] - makes the bot say [target].
+                                </li>
+                                <li>join [room] - makes the bot try to join [room].
+                                </li>
+                                <li>leave - makes the bot leave the room this command is done in.</li>
+                                <li>say [target] - makes the bot say [target].</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div align="left" id="credits" style="display:none">
+                    <hr width="50%">
+                    <div style="text-align: center">
+                        <h2>Credits</h2>
+                    </div>
+                    <ul>
+                        <li>jd - Owner, developer</li>
+                        <li>panpawn - Developer, guide</li>
+                    </ul>
+                    <br />
+                    <ul>
+                        <li><a href="https://github.com/jd4564/PS-Bot" target="_blank"><font color="white">jd's github</font></a></li>
+                        <li><a href="https://github.com/panpawn/PS-Bot" target="_blank"><font color="white">panpawn's github</font></a></li>
+                    </ul>
+                </div>
+            </div>
+    </body>
+
+</html>

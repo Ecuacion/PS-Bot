@@ -18,9 +18,16 @@ exports.commands = {
 	credits: 'about',
 	about: function (target, room, user, pm) {
 		if (!hasPermission(user, 'broadcast')) pm = "/msg " + user.substr(1) + ", ";
-		this.send(pm + "PS Bot by jd and (https://github.com/jd4564/PS-Bot)", room);
+		this.send(pm + "PS Bot by jd (https://github.com/jd4564/PS-Bot)", room);
 	},
 
+	guide: function (target, room, user, pm) {
+		if (!hasPermission(user, 'broadcast')) pm = "/msg " + user.substr(1) + ", ";
+		var guide = "";
+		if (!Config.ip || !Config.webport) guide = "not setup";
+		if (Config.ip && Config.webport) guide = 'http://' + Config.ip + ':' + Config.webport + '/guide.html';
+		this.send(pm + "Bot Guide: " + guide, room);
+	},
 	uptime: function (target, room, user, pm) {
 		if (!hasPermission(user, 'broadcast')) pm = "/msg " + user.substr(1) + ", ";
 		var uptime = process.uptime();
@@ -68,7 +75,7 @@ exports.commands = {
 	},
 
 	viewlogs: function (target, room, user, pm) {
-		if (!hasPermission(user, 'viewlogs')) pm = "/msg " + user.substr(1) + ", ";
+		if (!hasPermission(user, 'admin')) return false;
 		if (!target) return this.send(pm + "Usage: " + Config.trigger + "viewlogs [server], [room], [DD-MM-YYYY]", room);
 		if (~this.privaterooms.indexOf(toId(target)) && !hasPermission(user, 'admin')) return this.send(pm + "Access denied", room);
 		var targets = target.split(',');
