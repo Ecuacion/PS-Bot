@@ -92,7 +92,7 @@ module.exports = (function () {
 			}
 			break;
 		default:
-			this.logChat(toId(roomid), data);
+			if (!~data.indexOf('<div class="infobox">')) this.logChat(toId(roomid), data); // do not log roomintros upon joining the room
 			break;
 		}
 	};
