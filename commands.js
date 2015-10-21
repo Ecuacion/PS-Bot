@@ -1,8 +1,6 @@
-/* Main Bot Commands File
- * In this, you will find that the main
- * commands file for this bot is here.
- * Alternatively, you can define commands
- * in as a plungin in the plugin directory.
+/* Commands
+ * In here you'll find the majority of the commands for the bot.
+ * Alternatively, you may add commands via a plugin in the plugins directory.
  */
 
 var fs = require('fs');
@@ -187,14 +185,13 @@ exports.commands = {
 		this.send(pm + " " + sanitize(target), room);
 	},
 
+	pickrandom: 'pick',
 	choose: 'pick',
 	pick: function (target, room, user, pm) {
 		if (!hasPermission(user, 'broadcast')) pm = "/msg " + user.substr(1) + ", ";
-		target = target.split(',');
-		if (target.length < 2) return this.send(pm + "Usage: " + Config.trigger + "pick [option], [option], ... - picks a random [option].  Requires at least two options.", room);
-		var random = target[Math.floor(Math.random() * target.length)];
-		this.send(pm + "Randomly selected: " + random, room);
-	},
+		if (target.length < 3 || !~target.indexOf(',')) return this.send(pm + "Usage: " + Config.trigger + "pick [option], [option], ... - picks a random [option].  Requires at least two options.", room);
+		this.send(pm + "Randomly selected: " + target.split(',').sample(), room);
+	}
 };
 
 // uploadToHastebin function by TalkTakesTime (https://github.com/TalkTakesTime/Pokemon-Showdown-Bot)
